@@ -1,6 +1,6 @@
 [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/redhat.vscode-yaml?style=for-the-badge&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/redhat.vscode-yaml?style=for-the-badge&logo=microsoft)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
-[![Build Status](https://img.shields.io/github/workflow/status/redhat-developer/vscode-yaml/CI?style=for-the-badge&logo=github)](https://github.com/redhat-developer/vscode-yaml/actions?query=workflow:CI)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/redhat-developer/vscode-yaml/CI.yaml?branch=main&style=for-the-badge&logo=github)](https://github.com/redhat-developer/vscode-yaml/actions?query=workflow:CI)
 [![License](https://img.shields.io/github/license/redhat-developer/vscode-yaml?style=for-the-badge)](https://github.com/redhat-developer/vscode-yaml/blob/master/LICENSE)
 [![OpenVSX Registry](https://img.shields.io/open-vsx/dt/redhat/vscode-yaml?color=purple&label=OpenVSX%20Downloads&style=for-the-badge)](https://open-vsx.org/extension/redhat/vscode-yaml)
 
@@ -50,7 +50,7 @@ The following settings are supported:
 * `yaml.schemaStore.enable`: When set to true, the YAML language server will pull in all available schemas from [JSON Schema Store](http://schemastore.org/json/)
 * `yaml.schemaStore.url`: URL of a schema store catalog to use when downloading schemas.
 * `yaml.customTags`: Array of custom tags that the parser will validate against. It has two ways to be used. Either an item in the array is a custom tag such as "!Ref" and it will automatically map !Ref to a scalar, or you can specify the type of the object !Ref should be, e.g. "!Ref sequence". The type of object can be either scalar (for strings and booleans), sequence (for arrays), mapping (for objects).
-* `yaml.maxComputedItems`: The maximum number of outline symbols and folding regions computed (limited for performance reasons).
+* `yaml.maxItemsComputed`: The maximum number of outline symbols and folding regions computed (limited for performance reasons).
 * `yaml.disableDefaultProperties`: Disable adding not required properties with default values into completion text (default is false).
 * `yaml.suggest.parentSkeletonSelectedFirst`: If true, the user must select some parent skeleton first before autocompletion starts to suggest the rest of the properties. When the YAML object is not empty, autocompletion ignores this setting and returns all properties and skeletons.
 
@@ -64,7 +64,8 @@ The following settings are supported:
 - `http.proxyStrictSSL`: If true the proxy server certificate should be verified against the list of supplied CAs. Default is false.
 - `yaml.style.flowMapping` : Forbids flow style mappings if set to `forbid`
 - `yaml.style.flowSequence` : Forbids flow style sequences if set to `forbid`
-In to your settings.
+- `yaml.keyOrdering` : Enforces alphabetical ordering of keys in mappings when set to `true`. Default is `false`
+- `yaml.extension.recommendations` : Enable extension recommendations for YAML files. Default is `true`
 
 ## Adding custom tags
 

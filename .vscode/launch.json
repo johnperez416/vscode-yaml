@@ -8,11 +8,11 @@
       "request": "launch",
       "runtimeExecutable": "${execPath}",
       "args": ["--extensionDevelopmentPath=${workspaceRoot}"],
-      "stopOnEntry": false,
       "sourceMaps": true,
       "outFiles": ["${workspaceRoot}/dist/**/*.js"],
       "preLaunchTask": "compile typescript",
       "env": {
+        "DEBUG_VSCODE_YAML":"true",
         "VSCODE_REDHAT_TELEMETRY_DEBUG":"true"
       }
     },
@@ -28,17 +28,23 @@
         "--extensionTestsPath=${workspaceFolder}/out/test",
         "${workspaceRoot}/test/testFixture"
       ],
-      "outFiles": ["${workspaceFolder}/out/test/**/*.js"]
+      "outFiles": ["${workspaceFolder}/out/test/**/*.js"],
+      "env": {
+        "DEBUG_VSCODE_YAML":"true"
+      }
     },
     {
       "name": "Launch Web Extension",
-      "type": "pwa-extensionHost",
+      "type": "extensionHost",
       "debugWebWorkerHost": true,
       "request": "launch",
       "args": [
         "--extensionDevelopmentPath=${workspaceFolder}",
         "--extensionDevelopmentKind=web"
       ],
+      "env": {
+        "VSCODE_REDHAT_TELEMETRY_DEBUG":"true"
+      },
       "outFiles": ["${workspaceRoot}/dist/**/*.js"],
       "preLaunchTask": "compile webpack"
     },

@@ -72,10 +72,15 @@ const clientWeb = {
   resolve: {
     mainFields: ['module', 'main'],
     extensions: ['.ts', '.js'], // support ts-files and js-files
-    alias: {},
+    alias: {
+      'node-fetch': 'whatwg-fetch',
+      'object-hash': 'object-hash/dist/object_hash.js',
+    },
     fallback: {
       path: require.resolve('path-browserify'),
+      'node-fetch': require.resolve('whatwg-fetch'),
       util: require.resolve('util'),
+      fs: false,
     },
   },
   module: {
@@ -101,7 +106,7 @@ const clientWeb = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      process: 'process/browser.js', // provide a shim for the global `process` variable
+      process: path.resolve(path.join(__dirname, 'node_modules/process/browser.js')), // provide a shim for the global `process` variable
     }),
   ],
   externals: {
@@ -138,6 +143,7 @@ const serverWeb = {
       path: require.resolve('path-browserify/'),
       url: require.resolve('url/'),
       buffer: require.resolve('buffer/'),
+      fs: false,
     },
   },
   plugins: [
